@@ -2,6 +2,8 @@
 
 Example of Infineon's highly sensitive [IM69D130](https://www.infineon.com/cms/de/product/sensor/mems-microphones/im69d130/) Microphone Shield2Go board for Arduino.
 
+Directly jump to the [Example](https://github.com/Infineon/IM69D130-Microphone-Shield2Go/blob/master/README.md#examples) section.
+
 ## Summary
 ### Overview
 The [IM69D130](https://www.infineon.com/cms/de/product/sensor/mems-microphones/im69d130/) is designed for applications where low self-noise (high SNR), wide dynamic range, low distortions and a high acoustic overload point is required. 
@@ -67,16 +69,16 @@ However, every Shield2Go is directly compatible with Infineon's XMC2Go and the r
 Before you can use the examples, ensure that you have installed Arduino as described [here](https://www.arduino.cc/en/Guide/Guide). Moreover, the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) integration is needed for the XMC2Go and ensure that you have followed the instructions provided [here](https://github.com/Infineon/XMC-for-Arduino). Especially, ensure that you integrated the XMC boards into the Arduino IDE and that you have installed the [SEGGER J-Link](https://www.segger.com/downloads/jlink) software from the official [source](https://www.segger.com/downloads/jlink).
 Moreover, ensure that you select the `XMC1100 XMC2Go` board from the Arduino IDE if you compile the examples.
 
-#### sampleValues
+#### Example `sampleValues`
 This example is self-explanatory as it mainly reads out one single microphone and prints the data on the serial monitor. 
 Just follow the instructions provided in the `sampleValues.ino` file and open the serial plotter with the correct `COM` port and baudrate of `1000000` to see the data.
 
-#### soundPressureLevel
+#### Example `soundPressureLevel`
 This example shows how to provide a sound pressure level output for a single microphone. Just follow the instructions provided in the `soundPressureLevel.ino` file and upload it to the board. Afterwards, please open the serial plotter with the correct `COM` port and select the baudrate of `1000000`. Now make some noise and watch how peaks are detected, i.e. you mainly get output when the sound reaches a threshold. Please note that the serial plotter might get blocked if you flash the example and have selected the wrong baudrate. In this case, just unplug the board immediately with open serial plotter, select the respective baudrate, close the plotter, reattach the board and open the plotter once again.
 
 You could easily modify the example and add additional checks or limit the output to a specific range with conditional checks.
 
-#### sampleReadingWave
+#### Example `sampleReadingWave`
 This example shows how to stream data via the serial interface for a single microphone and store the output via a Python script as a `.wav` file. 
 Just follow the instructions provided in the `sampleReadingWave.ino` file and upload it to the board. Afterwards, please check that you have installed `Python 3` as a dependency. If you do not have it installed, you can get it from here and install it. We need the pySerial library, i.e. install it via pip with `pip install pySerial` if you do not have it.
 
