@@ -108,7 +108,7 @@ Wave file related values, e.g. if you would like to change the sample rate, can 
 nchannels = 1
 sampwidth = 4
 nframes = 0
-sampleRate = 12000
+sampleRate = 11000
 ```
 
 Please be aware that the sample rate is the rate of the actual sampling - if you have overflow or loose values, the actual sampling rate will be lower.
