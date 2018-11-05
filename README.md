@@ -33,3 +33,91 @@ The IM69D130 Microphone Shield2Go takes the PDM output of the IM69D130 and conve
     * Conference systems
     * Cameras and camcorders
     * Industrial or home monitoring with audio pattern detection
+
+### Integration of Project
+Please download this repository from GitHub by clicking on `Download ZIP` at `Clone of download` dropdown button of this repository or directly [here](https://github.com/Infineon/IM69D130-Microphone-Shield2Go/archive/master.zip).
+
+Just unzip the file to a location of your choice for further processing the examples.
+You can also just clone the repository to a location of your choice and work with the repository directly.
+
+## Usage
+Please see the example sketches in the `/examples` directory:
+
+* `sampleReadingWave`
+* `sampleValues`
+* `soundPressureLevel`
+
+We will guide you now through using the provided examples with a IM69D130 Microphone Shield2Go in combination with an XMC2Go.
+
+### IM69D130 Microphone Shield2Go
+The IM69D130 Microphone Shield2Go is a standalone break out board with Infineon's Shield2Go formfactor and pin out. You can connect it easily to any microcontroller of your choice which is Arduino compatible and has 3.3 V logic level (please note that the Arduino UNO has 5 V logic level and cannot be used without level shifting).
+Please consult the [wiki](https://github.com/Infineon/IM69D130-Microphone-Shield2Go/wiki) for additional details about the board.
+
+This board uses I2S and will block the SPI ports of the Shield2Go as they are redefined to be compatible with the Shield2Go formfactor.
+
+Overall, the following SPI - I2S pin matching is in place:
+
+* SPI:MISO -- I2S:DATA (INPUT)
+* SPI:SCK -- I2S:CLK
+* SPI:SS -- I2S:BCLK
+
+However, every Shield2Go is directly compatible with Infineon's XMC2Go and the recommended quick start is to use an XMC2Go for evaluation. Therefore, please install (if not already done) also the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) implementation and choose afterwards **XMC1100 XMC2Go** from the **Tools**>**Board** menu in the Arduino IDE if working with this evaluation board. To use it, please plug the IM69D130 Microphone Shield2Go onto the XMC2Go as shown below.
+
+### Examples
+Before you can use the examples, ensure that you have installed Arduino as described [here](https://www.arduino.cc/en/Guide/Guide). Moreover, the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) integration is needed for the XMC2Go and ensure that you have followed the instructions provided [here](https://github.com/Infineon/XMC-for-Arduino). Especially, ensure that you integrated the XMC boards into the Arduino IDE and that you have installed the [SEGGER J-Link](https://www.segger.com/downloads/jlink) software from the official [source](https://www.segger.com/downloads/jlink).
+Moreover, ensure that you select the `XMC1100 XMC2Go` board from the Arduino IDE if you compile the examples.
+
+#### sampleValues
+This example is self-explanatory as it mainly reads out one single microphone and prints the data on the serial monitor. 
+Just follow the instructions provided in the `sampleValues.ino` file and open the serial plotter with the correct `COM` port and baudrate of `1000000` to see the data.
+
+#### soundPressureLevel
+This example shows how to provide a sound pressure level output for a single microphone. Just follow the instructions provided in the `soundPressureLevel.ino` file and upload it to the board. Afterwards, please open the serial plotter with the correct `COM` port and select the baudrate of `1000000`. Now make some noise and watch how peaks are detected, i.e. you mainly get output when the sound reaches a threshold. Please note that the serial plotter might get blocked if you flash the example and have selected the wrong baudrate. In this case, just unplug the board immediately with open serial plotter, select the respective baudrate, close the plotter, reattach the board and open the plotter once again.
+
+You could easily modify the example and add additional checks or limit the output to a specific range with conditional checks.
+
+#### sampleReadingWave
+This example shows how to stream data via the serial interface for a single microphone and store the output via a Python script as a `.wav` file. 
+Just follow the instructions provided in the `sampleReadingWave.ino` file and upload it to the board. Afterwards, please check that you have installed `Python 3` as a dependency. If you do not have it installed, you can get it from here and install it. We need the pySerial library, i.e. install it via pip with `pip install pySerial` if you do not have it.
+
+Now open the file `waveSerialSplits.py` and add the correct `COM` port in:
+
+```Python
+# Global settings of for the serial port
+comPort = "COM3"
+baudrate = 1000000
+```
+
+If you change the baudrate, this needs to be adapted as well. 
+Please kindly note that `COM3` is only an example for a Windows based system.
+
+Now execute the python script via `python waveSerialSplits.py` and if you would like to finish recording, just abort the script.
+
+If you want to change the output file name, just adapt the following line:
+
+```Python
+# Open a wav file
+wavFile=wave.open("output.wav", "w")
+```
+Wave file related values, e.g. if you would like to change the sample rate, can be changed here:
+
+```Python
+# .wav params
+nchannels = 1
+sampwidth = 4
+nframes = 0
+sampleRate = 12000
+```
+
+Please be aware that the sample rate is the rate of the actual sampling - if you have overflow or loose values, the actual sampling rate will be lower.
+This will lead to a wrong playback speed as the actual sampling rate does not match the selected one.
+
+You can now play the recorded file, e.g., with Audacity.
+
+## Known Issues
+
+### Temperature Measurement Issue
+Sampling rate can be too high to transfer the collected data via the serial interface. The XMC2Go has a maximum baudrate of around 1 MBaud and if the data cannot be transferred accordingly, an overflow will happen. This can be checked in the examples, but currently a maximum sampling rate of 11 kHz for a single microphone is possible with the provided examples.
+
+### Additional Information
+Please find the datasheet of the IM69D130 [here](https://www.infineon.com/dgdl/Infineon-IM69D130-DS-v01_00-EN.pdf?fileId=5546d462602a9dc801607a0e46511a2e). The product page can be found [here](https://www.infineon.com/cms/de/product/sensor/mems-microphones/im69d130/).
