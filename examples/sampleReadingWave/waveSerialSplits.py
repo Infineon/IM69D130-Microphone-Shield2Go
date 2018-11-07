@@ -52,7 +52,6 @@ def processAudioData():
             # We receive 20 bit signed integer values which have a maximum value of (2^19-1) and minimum value (-2^19)
             if integer < -524288 or integer > 524287:
                 continue
-                integer = 0
             # Parse the integer to a signed 32 bit value with maximum value of +/-2^31-1 = 2147483647
             # Note that there is an error of +/- 1 due to asymmetric max. values
             parse = int(float((float(integer)/524288)*(2147483647)))
