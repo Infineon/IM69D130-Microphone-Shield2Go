@@ -123,9 +123,9 @@ This will lead to a wrong playback speed as the actual sampling rate does not ma
 
 You can now play the recorded file, e.g. `output.wav` in this case, with Audacity from the example folder.
 
-## Known Issues
+## Known Issues and Additional Information
 
-### Temperature Measurement Issue
+### Sampling Rate
 Sampling rate can be too high to transfer the collected data via the serial interface. The XMC2Go has a maximum baudrate of around 1 MBaud and if the data cannot be transferred accordingly, an overflow will happen. This can be checked in the examples, but currently a maximum sampling rate of 11 kHz for a single microphone is possible with the provided examples.
 
 ### Additional Information
