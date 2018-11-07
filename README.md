@@ -1,5 +1,7 @@
 # IM69D130-Microphone-Shield2Go
 
+<img src="https://github.com/Infineon/Assets/blob/master/Pictures/IM69D130_Microphone_Shield2Go_Transformed_Resized.jpg" width=350>
+
 Example of Infineon's highly sensitive [IM69D130](https://www.infineon.com/cms/de/product/sensor/mems-microphones/im69d130/) Microphone Shield2Go board for Arduino.
 
 Directly jump to the [Example](https://github.com/Infineon/IM69D130-Microphone-Shield2Go/blob/master/README.md#examples) section.
