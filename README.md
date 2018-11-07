@@ -39,7 +39,7 @@ The IM69D130 Microphone Shield2Go takes the PDM output of the IM69D130 and conve
     * Industrial or home monitoring with audio pattern detection
 
 ### Integration of Project
-Please download this repository from GitHub by clicking on `Download ZIP` at `Clone of download` dropdown button of this repository or directly [here](https://github.com/Infineon/IM69D130-Microphone-Shield2Go/archive/master.zip).
+Please download this repository from GitHub by clicking on `Download ZIP` at `Clone or download` dropdown button of this repository or directly [here](https://github.com/Infineon/IM69D130-Microphone-Shield2Go/archive/master.zip).
 
 Just unzip the file to a location of your choice for further processing the examples.
 You can also just clone the repository to a location of your choice and work with the repository directly.
@@ -66,6 +66,8 @@ Overall, the following SPI - I2S pin matching is in place:
 * SPI:SS -- I2S:BCLK
 
 However, every Shield2Go is directly compatible with Infineon's XMC2Go and the recommended quick start is to use an XMC2Go for evaluation. Therefore, please install (if not already done) also the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) implementation and choose afterwards **XMC1100 XMC2Go** from the **Tools**>**Board** menu in the Arduino IDE if working with this evaluation board. To use it, please plug the IM69D130 Microphone Shield2Go onto the XMC2Go as shown below.
+
+<img src="https://github.com/Infineon/Assets/blob/master/Pictures/IM69D130_S2Go_w_XMC2Go.png" width=250>
 
 ### Examples
 Before you can use the examples, ensure that you have installed Arduino as described [here](https://www.arduino.cc/en/Guide/Guide). Moreover, the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) integration is needed for the XMC2Go and ensure that you have followed the instructions provided [here](https://github.com/Infineon/XMC-for-Arduino). Especially, ensure that you integrated the XMC boards into the Arduino IDE and that you have installed the [SEGGER J-Link](https://www.segger.com/downloads/jlink) software from the official [source](https://www.segger.com/downloads/jlink).
