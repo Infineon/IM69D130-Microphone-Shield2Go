@@ -75,16 +75,19 @@ Moreover, ensure that you select the `XMC1100 XMC2Go` board from the Arduino IDE
 
 #### Example `sampleValues`
 This example is self-explanatory as it mainly reads out one single microphone and prints the data on the serial monitor. 
-Just follow the instructions provided in the `sampleValues.ino` file and open the serial plotter with the correct `COM` port and baudrate of `1000000` to see the data.
+Just follow the instructions provided in the `sampleValues.ino` file, connect the stacked boards to the PC and press the `Upload` button. Select the related `COM` port from `Tools – Port` and open the serial plotter from `Tools - Serial Plotter` with the correct `COM` port and baudrate of `1000000` to see the data.
+Please note that the serial plotter might get blocked if you flash the example and have selected the wrong baudrate. In this case, just unplug the board immediately with open serial plotter, select the respective baudrate, close the plotter, reattach the board and open the plotter once again.
 
 #### Example `soundPressureLevel`
-This example shows how to provide a sound pressure level output for a single microphone. Just follow the instructions provided in the `soundPressureLevel.ino` file and upload it to the board. Afterwards, please open the serial plotter with the correct `COM` port and select the baudrate of `1000000`. Now make some noise and watch how peaks are detected, i.e. you mainly get output when the sound reaches a threshold. Please note that the serial plotter might get blocked if you flash the example and have selected the wrong baudrate. In this case, just unplug the board immediately with open serial plotter, select the respective baudrate, close the plotter, reattach the board and open the plotter once again.
+This example shows how to provide a sound pressure level output for a single microphone. Just follow the instructions provided in the `soundPressureLevel.ino` file and upload it to the board by pressing the `Upload` button. Afterwards, please open the serial plotter from `Tools - Serial Plotter` with the correct `COM` port and baudrate of `1000000`. 
+Now, make some noise and watch how peaks are detected, i.e. you mainly get output when the sound reaches a threshold. 
+Please note that the serial plotter might get blocked if you flash the example and have selected the wrong baudrate. In this case, just unplug the board immediately with open serial plotter, select the respective baudrate, close the plotter, reattach the board and open the plotter once again.
 
 You could easily modify the example and add additional checks or limit the output to a specific range with conditional checks.
 
 #### Example `sampleReadingWave`
 This example shows how to stream data via the serial interface for a single microphone and store the output via a Python script as a `.wav` file. 
-Just follow the instructions provided in the `sampleReadingWave.ino` file and upload it to the board. Afterwards, please check that you have installed `Python 3` as a dependency. If you do not have it installed, you can get it from here and install it. We need the pySerial library, i.e. install it via pip with `pip install pySerial` if you do not have it.
+Just follow the instructions provided in the `sampleReadingWave.ino` file and upload it to the board by pressing the `Upload` button. Afterwards, please check that you have installed `Python 3` as a dependency. If you do not have it installed, you can get it from [here](https://www.python.org/download/releases/3.0/) and install it. We need the pySerial library, i.e. install it via pip with `pip install pySerial` if you do not have it.
 
 Now open the file `waveSerialSplits.py` and add the correct `COM` port in:
 
@@ -95,9 +98,9 @@ baudrate = 1000000
 ```
 
 If you change the baudrate, this needs to be adapted as well. 
-Please kindly note that `COM3` is only an example for a Windows based system.
+Please kindly note that `COM3` is only an example for a Windows based system and the correct port is dependent on the assignment by your operating system.
 
-Now execute the python script via `python waveSerialSplits.py` and if you would like to finish recording, just abort the script.
+Now execute the Python script via `python waveSerialSplits.py` and if you would like to finish recording, just abort the script.
 
 If you want to change the output file name, just adapt the following line:
 
@@ -118,7 +121,7 @@ sampleRate = 11000
 Please be aware that the sample rate is the rate of the actual sampling - if you have overflow or loose values, the actual sampling rate will be lower.
 This will lead to a wrong playback speed as the actual sampling rate does not match the selected one.
 
-You can now play the recorded file, e.g., with Audacity.
+You can now play the recorded file, e.g. `output.wav` in this case, with Audacity from the example folder.
 
 ## Known Issues
 
