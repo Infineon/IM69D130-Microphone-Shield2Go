@@ -51,7 +51,7 @@ Please see the example sketches in the `/examples` directory:
 * `sampleValues`
 * `soundPressureLevel`
 
-We will guide you now through using the provided examples with a IM69D130 Microphone Shield2Go in combination with an XMC2Go.
+We will guide you now through using the provided examples with a IM69D130 Microphone Shield2Go in combination with an XMC 2Go.
 
 ### IM69D130 Microphone Shield2Go
 The IM69D130 Microphone Shield2Go is a standalone break out board with Infineon's Shield2Go formfactor and pin out. You can connect it easily to any microcontroller of your choice which is Arduino compatible and has 3.3 V logic level (please note that the Arduino UNO has 5 V logic level and cannot be used without level shifting).
@@ -65,12 +65,12 @@ Overall, the following SPI - I2S pin matching is in place:
 * SPI:SCK -- I2S:CLK
 * SPI:SS -- I2S:BCLK
 
-However, every Shield2Go is directly compatible with Infineon's XMC2Go and the recommended quick start is to use an XMC2Go for evaluation. Therefore, please install (if not already done) also the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) implementation and choose afterwards **XMC1100 XMC2Go** from the **Tools**>**Board** menu in the Arduino IDE if working with this evaluation board. To use it, please plug the IM69D130 Microphone Shield2Go onto the XMC2Go as shown below.
+However, every Shield2Go is directly compatible with Infineon's XMC 2Go and the recommended quick start is to use an XMC 2Go for evaluation. Therefore, please install (if not already done) also the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) implementation and choose afterwards **XMC1100 XMC2Go** from the **Tools**>**Board** menu in the Arduino IDE if working with this evaluation board. To use it, please plug the IM69D130 Microphone Shield2Go onto the XMC 2Go as shown below.
 
 <img src="https://github.com/Infineon/Assets/blob/master/Pictures/IM69D130_S2Go_w_XMC2Go.png" width=250>
 
 ### Examples
-Before you can use the examples, ensure that you have installed Arduino as described [here](https://www.arduino.cc/en/Guide/Guide). Moreover, the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) integration is needed for the XMC2Go and ensure that you have followed the instructions provided [here](https://github.com/Infineon/XMC-for-Arduino). Especially, ensure that you integrated the XMC boards into the Arduino IDE and that you have installed the [SEGGER J-Link](https://www.segger.com/downloads/jlink) software from the official [source](https://www.segger.com/downloads/jlink).
+Before you can use the examples, ensure that you have installed Arduino as described [here](https://www.arduino.cc/en/Guide/Guide). Moreover, the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) integration is needed for the XMC 2Go and ensure that you have followed the instructions provided [here](https://github.com/Infineon/XMC-for-Arduino). Especially, ensure that you integrated the XMC boards into the Arduino IDE and that you have installed the [SEGGER J-Link](https://www.segger.com/downloads/jlink) software from the official [source](https://www.segger.com/downloads/jlink).
 Moreover, ensure that you select the `XMC1100 XMC2Go` board from the Arduino IDE if you compile the examples.
 
 #### Example `sampleValues`
