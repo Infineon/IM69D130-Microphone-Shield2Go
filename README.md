@@ -55,7 +55,10 @@ We will guide you now through using the provided examples with a IM69D130 Microp
 
 ### IM69D130 Microphone Shield2Go
 The IM69D130 Microphone Shield2Go is a standalone break out board with Infineon's Shield2Go formfactor and pin out. You can connect it easily to any microcontroller of your choice which is Arduino compatible and has 3.3 V logic level (please note that the Arduino UNO has 5 V logic level and cannot be used without level shifting).
+
 Please consult the [wiki](https://github.com/Infineon/IM69D130-Microphone-Shield2Go/wiki) for additional details about the board.
+
+[<img src="https://github.com/Infineon/Assets/blob/master/Pictures/IM69D130_Microphone_Shield2Go_PinOut.jpg" width=300>](https://github.com/Infineon/IM69D130-Microphone-Shield2Go/wiki)[<img src="https://github.com/Infineon/Assets/blob/master/Pictures/IM69D130_Microphone_Shield2Go_Sch.jpg" width=300>](https://github.com/Infineon/IM69D130-Microphone-Shield2Go/wiki)
 
 This board uses I2S and will block the SPI ports of the Shield2Go as they are redefined to be compatible with the Shield2Go formfactor.
 
