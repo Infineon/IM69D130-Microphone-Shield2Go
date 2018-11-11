@@ -26,12 +26,16 @@ wavFile.setparams((nchannels, sampwidth, sampleRate, nframes, comptype, compname
 # Create an instance of the serial port
 serInstance = serial.Serial(comPort, baudrate, timeout=0)
 
+# Buffer the last value in case of data dropping
+lastValueFromStream = b''
+
 def processAudioData():
     # Create a byte object for storing the returned values from the serial port
     returnedValue = b''
     # Variable to store the available bytes from the serial buffer
     bytesToRead = 1
     while bytesToRead != 0:
+        global lastValueFromStream
         # Check whether bytes are available for reading
         bytesToRead = serInstance.inWaiting()
         # If we have nothing to do, just leave the while loop
@@ -45,7 +49,9 @@ def processAudioData():
         for value in returnedValue:
             # We send three bytes - if we receive less or more, we drop the result
             if len(value) != 3:
-                continue
+                #continue
+                value = lastValueFromStream
+            lastValueFromStream = value
             # Create an integer from the binary values
             integer = int.from_bytes(value, byteorder='big', signed=True)
             # Due to transmission errors, there might be values above/below the maximum value
@@ -56,9 +62,9 @@ def processAudioData():
             # Note that there is an error of +/- 1 due to asymmetric max. values
             parse = int(float((float(integer)/524288)*(2147483647)))
             # Write the values to the wave file
-            wavFile.writeframes(struct.pack('i', parse))  
+            wavFile.writeframes(struct.pack('i', parse))
     return
 
 if __name__ == '__main__':
-    timerReadSoundValues = threading.Timer(0.0001, processAudioData)
-    timerReadSoundValues.start()
+    while True:
+        processAudioData()
