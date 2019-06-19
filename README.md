@@ -65,8 +65,8 @@ This board uses I2S and will block the SPI ports of the Shield2Go as they are re
 Overall, the following SPI - I2S pin matching is in place:
 
 * SPI:MISO -- I2S:DATA (INPUT)
-* SPI:SCK -- I2S:CLK
-* SPI:SS -- I2S:BCLK
+* SPI:SCK -- I2S:BCLK
+* SPI:SS -- I2S:LRCLK
 
 However, every Shield2Go is directly compatible with Infineon's XMC 2Go and the recommended quick start is to use an XMC 2Go for evaluation. Therefore, please install (if not already done) also the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) implementation and choose afterwards **XMC1100 XMC2Go** from the **Tools**>**Board** menu in the Arduino IDE if working with this evaluation board. To use it, please plug the IM69D130 Microphone Shield2Go onto the XMC 2Go as shown below.
 
